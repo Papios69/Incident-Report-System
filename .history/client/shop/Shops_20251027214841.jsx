@@ -1,0 +1,99 @@
+import React, { useState, useEffect } from "react";
+import {
+  Paper,
+  List,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+  Typography,
+  Divider,
+  Box,
+} from "@mui/material";
+import { list } from "./api-shop.js";
+import { Link } from "react-router-dom";
+
+export default function Shops() {
+  const [shops, setShops] = useState([]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    list(signal).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setShops(data);
+      }
+    });
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+
+  return (
+    <Box
+      sx={{
+        maxWidth: 600,
+        margin: "auto",
+        padding: 3,
+        mt: 5,
+        mb: 3,
+        bgcolor: "background.paper",
+      }}
+      component={Paper}
+      elevation={4}
+    >
+      <Typography
+        variant="h5"
+        component="h1"
+        sx={{
+          color: "text.primary",
+          textAlign: "center",
+          mb: 2,
+          fontWeight: "bold",
+        }}
+      >
+        All Shops
+      </Typography>
+      <List dense>
+        {shops.map((shop, i) => (
+          <Box
+            key={shop._id || i}
+            component={Link}
+            to={`/shops/${shop._id}`}
+            sx={{ textDecoration: "none", color: "inherit" }}
+          >
+            <Divider />
+            <ListItem button alignItems="flex-start">
+              <ListItemAvatar>
+                <Avatar
+                  sx={{ width: 100, height: 100 }}
+                  src={`/api/shops/logo/${shop._id}?${new Date().getTime()}`}
+                  alt={shop.name}
+                />
+              </ListItemAvatar>
+              <Box sx={{ pl: 2, py: 1 }}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  color="primary"
+                  sx={{ mb: 0.5 }}
+                >
+                  {shop.name}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ whiteSpace: "pre-line" }}
+                >
+                  {shop.description}
+                </Typography>
+              </Box>
+            </ListItem>
+            <Divider />
+          </Box>
+        ))}
+      </List>
+    </Box>
+  );
+}
