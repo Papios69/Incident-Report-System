@@ -43,14 +43,12 @@ const Dashboard = () => {
 
       {error && <p className="dashboard-error">{error}</p>}
 
-      {/* Tabla primero */}
       {loading ? (
         <p className="dashboard-loading">Loading…</p>
       ) : (
         <IncidentTable incidents={incidents} onDelete={handleDelete} />
       )}
 
-      {/* Formulario debajo */}
       <IncidentForm onSubmit={handleCreate} />
     </div>
   );

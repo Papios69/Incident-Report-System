@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem; /* espacio interno para despegar del borde */
+  padding: 1rem 2rem; 
   background-color: #0a1927;
   border-bottom: 1px solid #e5e7eb;
 }
@@ -17,16 +17,16 @@
 }
 
 .dashboard-logo {
-  height: 120px;   /* ajusta según tu logo */
+  height: 120px;   
   width: 120px;
 }
 
 .p-6 {
-  padding: 1.5rem; /* 24px */
+  padding: 1.5rem; 
 }
 
 .max-w-5xl {
-  max-width: 64rem; /* ~1024px */
+  max-width: 64rem; 
 }
 
 .mx-auto {
@@ -34,7 +34,6 @@
   margin-right: auto;
 }
 
-/* Titles */
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -44,7 +43,6 @@
   font-weight: 600;
 }
 
-/* Errors */
 .text-red-600 {
   color: #dc2626; 
 }
@@ -62,7 +60,6 @@
   margin-top: 1.5rem;
 }
 
-/* Loading */
 .loading {
   font-style: italic;
   color: #666;

@@ -1,10 +1,10 @@
 .incident-form-card {
-  max-width: 500px;          /* ancho limitado, no ocupa toda la pantalla */
-  margin: 2rem auto;         /* centrado con espacio arriba/abajo */
-  background-color: #fff;    /* fondo blanco tipo tarjeta */
+  max-width: 500px;          
+  margin: 2rem auto;         
+  background-color: #fff;    
   padding: 1.5rem;
-  border-radius: 12px;       /* bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* sombra suave */
+  border-radius: 12px;       
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
