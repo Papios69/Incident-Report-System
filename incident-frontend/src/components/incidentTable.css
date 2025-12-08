@@ -1,0 +1,39 @@
+.incident-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.incident-table th,
+.incident-table td {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 18px;
+}
+
+.incident-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 22px;
+}
+
+.incident-table tr:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-delete {
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #c2410c;
+}
