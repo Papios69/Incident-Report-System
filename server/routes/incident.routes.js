@@ -24,8 +24,8 @@ router
 router
   .route("/api/incidents/:incidentId")
   .get(incidentCtrl.read)
-  .put(incidentCtrl.update)
-  .delete(incidentCtrl.remove);
+  .put(authCtrl.requireSignin, incidentCtrl.update)
+  .delete(authCtrl.requireSignin, incidentCtrl.remove);
 
 router.param("incidentId", incidentCtrl.incidentByID);
 

@@ -80,9 +80,26 @@ export const updateIncident = async (id, payload) => {
 };
 
 export const deleteIncident = async (id) => {
+  const auth = getAuth();
+  const token = auth?.token;
+
+  const headers = {};
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
   const res = await fetch(`${API_BASE}/api/incidents/${id}`, {
     method: "DELETE",
+    headers,
   });
-  if (!res.ok) throw new Error("Failed to delete incident");
+
+  if (!res.ok) {
+    if (res.status === 401) {
+      throw new Error("You must be signed in to delete an incident");
+    }
+    throw new Error("Failed to delete incident");
+  }
+
   return { ok: true };
 };
+
