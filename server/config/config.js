@@ -1,26 +1,17 @@
 import dotenv from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const rootEnvPath = path.resolve(__dirname, "../../.env");
-
-
-dotenv.config({ path: rootEnvPath });
+dotenv.config();
 
 const config = {
-  port: process.env.PORT || 3000,
+  env: process.env.NODE_ENV || "development",
 
-  jwtSecret: process.env.JWT_SECRET || "fallbackSecret123",
+  port: process.env.PORT || 3000,
 
   mongoUri:
     process.env.MONGODB_URI ||
-    process.env.MONGO_URI ||
-    "mongodb://127.0.0.1:27017/IncidentReportSystem",
+    "mongodb://127.0.0.1:27017/safetrack",
 
-  env: process.env.NODE_ENV || "development",
+  jwtSecret: process.env.JWT_SECRET || "dev_jwt_secret_fallback",
 };
 
 export default config;

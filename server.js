@@ -25,3 +25,15 @@ app.listen(config.port, (err) => {
   console.log("Using MongoDB URI:", config.mongoUri);
   console.info("Server started on port %s.", config.port);
 });
+
+
+//log
+const PORT = config.port;
+
+app.listen(PORT, (err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log("Using MongoDB URI:", config.mongoUri);
+  console.info("Server started on port %s.", PORT);
+});
