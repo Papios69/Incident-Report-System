@@ -1,0 +1,32 @@
+.p-6 {
+  padding: 1.5rem; /* 24px */
+}
+
+.max-w-3xl {
+  max-width: 48rem; /* ~768px */
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Titles */
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+/* Loading */
+.loading {
+  font-style: italic;
+  color: #666;
+}

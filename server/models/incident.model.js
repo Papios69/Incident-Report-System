@@ -1,3 +1,4 @@
+// server/models/incident.model.js
 import mongoose from "mongoose";
 
 const IncidentSchema = new mongoose.Schema({
@@ -6,35 +7,26 @@ const IncidentSchema = new mongoose.Schema({
     trim: true,
     required: "Title is required",
   },
-  description: {
+  priority: {
     type: String,
-    trim: true,
-    required: "Description is required",
-  },
-  severity: {
-    type: String,
-    enum: ["Low", "Medium", "High", "Critical"],
-    default: "Low",
+    enum: ["High", "Medium", "Low"],
+    default: "Medium",
   },
   status: {
     type: String,
-    enum: ["Open", "In Progress", "Resolved", "Closed"],
+    enum: ["Open", "In progress", "Closed"],
     default: "Open",
   },
-  incidentDate: {
-    type: Date,
-    default: Date.now,
+  assignedTo: {
+    type: String,
+    trim: true,
+    default: "",
   },
-  reportedBy: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-    required: "Reporter is required",
-  },
-  updated: Date,
   created: {
     type: Date,
     default: Date.now,
   },
+  updated: Date,
 });
 
 export default mongoose.model("Incident", IncidentSchema);
