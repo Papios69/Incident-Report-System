@@ -1,4 +1,3 @@
-// server/controllers/incident.controller.js
 import Incident from "../models/incident.model.js";
 import extend from "lodash/extend.js";
 import errorHandler from "../helpers/dbErrorHandler.js";
@@ -16,7 +15,6 @@ const create = async (req, res) => {
   }
 };
 
-// Middleware to load incident by ID
 const incidentByID = async (req, res, next, id) => {
   try {
     const incident = await Incident.findById(id);
@@ -32,7 +30,7 @@ const incidentByID = async (req, res, next, id) => {
   }
 };
 
-// Read one
+// Read incident
 const read = (req, res) => {
   return res.json(req.incident);
 };
