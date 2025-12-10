@@ -3,13 +3,14 @@ import { getAuth } from "./AuthService";
 const API_BASE =
   import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-const mapIncident = (raw) => ({
+export const mapIncident = (raw) => ({
   id: raw._id,
   title: raw.title,
   status: raw.status,
   priority: raw.priority,
   assignedTo: raw.assignedTo,
 });
+
 
 export const listIncidents = async () => {
   const res = await fetch(`${API_BASE}/api/incidents`);
