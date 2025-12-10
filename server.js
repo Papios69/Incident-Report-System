@@ -16,8 +16,12 @@ mongoose.connection.on("error", () => {
   throw new Error(`unable to connect to database: ${config.mongoUri}`);
 });
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to User application." });
+  res.json({
+    message:
+      "Welcome to StackByte Incident Management System – CI/CD demo is working.",
+  });
 });
+
 app.listen(config.port, (err) => {
   if (err) {
     console.log(err);
